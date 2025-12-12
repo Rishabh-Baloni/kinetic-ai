@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  /* Base Variables */
+  --radius: 0.75rem;
+
+  /* Modern Gradient Theme Colors */
+  --base-black: #0a0a0f;
+  --base-dark: #13131a;
+  --base-darker: #1a1a24;
+  --accent-purple: #9333ea;
+  --accent-pink: #ec4899;
+  --accent-blue: #3b82f6;
+  --accent-cyan: #06b6d4;
+  --glow-purple: #a855f7;
+  --glow-pink: #f472b6;
+
+  /* Background - Deep dark with slight purple tint */
+  --background: var(--base-black);
+  --foreground: #f8fafc;
+
+  /* Card and popover elements */
+  --card: var(--base-darker);
+  --card-foreground: #f8fafc;
+  --popover: var(--base-darker);
+  --popover-foreground: #f8fafc;
+
+  /* Primary - Vibrant purple */
+  --primary: var(--accent-purple);
+  --primary-foreground: #ffffff;
+
+  /* Secondary - Pink gradient */
+  --secondary: var(--accent-pink);
+  --secondary-foreground: #ffffff;
+
+  /* Accent - Cyan/Blue */
+  --accent: var(--accent-cyan);
+  --accent-foreground: #ffffff;
+
+  /* Muted elements */
+  --muted: #27273a;
+  --muted-foreground: #a1a1aa;
+
+  /* System colors */
+  --destructive: #ef4444;
+  --border: rgba(147, 51, 234, 0.2);
+  --input: rgba(147, 51, 234, 0.15);
+  --ring: var(--accent-purple);
+
+  /* Chart colors - Modern gradient palette */
+  --chart-1: var(--accent-purple);
+  --chart-2: var(--accent-pink);
+  --chart-3: var(--accent-blue);
+  --chart-4: var(--accent-cyan);
+  --chart-5: #8b5cf6;
+
+  /* Sidebar colors */
+  --sidebar: var(--base-dark);
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: var(--accent-purple);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--accent-pink);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(147, 51, 234, 0.2);
+  --sidebar-ring: var(--accent-purple);
+
+  /* Custom Modern UI Variables */
+  --gradient-primary: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-pink) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+  --glow-primary: rgba(147, 51, 234, 0.3);
+  --glow-strong: rgba(147, 51, 234, 0.6);
+  --line-color: rgba(147, 51, 234, 0.25);
+  --card-glow: rgba(147, 51, 234, 0.05);
+}
+
+.dark {
+  /* Inherit from root - we're using the modern theme for both light and dark */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* https://tailwindcss.com/docs/upgrade-guide#buttons-use-the-default-cursor */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* TODO: EXPLAIN THIS BC U PROMISED JUST IN THE FIRST SECTION */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-slow-spin {
+  animation: slow-spin 12s linear infinite;
+}
+
+@keyframes sound-wave {
+  0% {
+    height: 10%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 10%;
+  }
+}
+
+.animate-sound-wave {
+  animation: sound-wave 1.2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hide Next.js development indicator */
+#__next-build-watcher {
+  display: none !important;
+}
