@@ -43,8 +43,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Profile photos (private)
-/public/Pranjal.jpg
-/public/Rishabh.jpg
-/public/Siddhant.jpg
