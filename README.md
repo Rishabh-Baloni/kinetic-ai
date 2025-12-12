@@ -107,4 +107,4 @@ Built by [Rishabh Baloni](https://portfolio-three-azure-83.vercel.app/)
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT LICENSE](LICENSE)
